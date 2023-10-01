@@ -10,7 +10,12 @@ class UserService {
     return user;
   }
 
-  async read(userId) {
+  async findAll() {
+    const users = await this.userModel.find();
+    return users;
+  }
+
+  async findOne(userId) {
     const user = await this.userModel.findById(userId);
     return user;
   }
