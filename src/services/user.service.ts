@@ -20,6 +20,11 @@ class UserService {
     return user;
   }
 
+  async read(userId) {
+    const user = await this.userModel.findOne(userId);
+    return user;
+  }
+
   async update(userId, newUserData) {
     const user = await this.userModel.findByIdAndUpdate(userId, newUserData, { new: true });
     return user;
