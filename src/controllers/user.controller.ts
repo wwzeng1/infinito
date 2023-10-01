@@ -10,6 +10,11 @@ export class UserController {
     return this.userService.create(userData);
   }
 
+  @Get()
+  async findAll() {
+    return this.userService.findAll();
+  }
+
   @Get(':id')
   async read(@Param('id') userId) {
     return this.userService.read(userId);
