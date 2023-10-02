@@ -18,8 +18,8 @@ export class AuthService {
   }
 
   async validateUser(payload: any): Promise<any> {
-    const user = await this.usersService.findOne(payload.username);
-    if (user && user.validatePassword(payload.password)) {
+    const user: any = await this.usersService.findOne(payload.username);
+    if (user && (await user.validatePassword(payload.password))) {
       const { password, ...result } = user;
       return result;
     }
