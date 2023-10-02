@@ -1,1 +1,3 @@
-export const JWT_SECRET = 'your-secret-key';
+import * as dotenv from 'dotenv';
+dotenv.config();
+export const JWT_SECRET = process.env.Secret;
