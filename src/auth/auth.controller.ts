@@ -11,4 +11,11 @@ export class AuthController {
     const token = await this.authService.generateToken(user);
     return { token };
   }
+
+  @Post('login')
+  async login(@Req() request: any) {
+    const user = request.user;
+    const { access_token } = await this.authService.login(user);
+    return { token: access_token };
+  }
 }
